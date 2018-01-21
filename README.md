@@ -3,8 +3,13 @@ Mercedes Benz
 
 This Idea aims at building a Software Solution "Benzos Carriers" which will enable vendors as well as end users deliver their products effortlessly,securely and economically with the help of fleet of Mercedes Benz self-driving vans (viewed as connected Multi-agents moving around the city).
 
+
+
 Problem Statement :
 Currently vendor services like Restaurant's Home Delivery Service,Food Delivery Startups like Swiggy,FoodPanda,TinyOwl etc, Food Joints like Dominos,Pizza Hut,McDonalds etc. , Courier Services like DTDC,FedEx,DHL,BlueDart etc,Online Grocery,Medicine and Supermarkets, E-commerce companies like Amazon,Flipkart etc within a city rely on fleet of bikers and delivery boys to deliver their products to the customers. These individual fleets lead to the ever-growing traffic problems in a Metropolitan City plus incur a large amount of revenue to be spent by these vendors in maintaining the delivery staff as well as the delivery vehicles.
+
+
+
 
 Metrics Involved :
 Lets analyze the metrics involved for the well-know Food Joint "Dominos Pizza" in United States of America :
@@ -14,6 +19,9 @@ Lets make a fair assumption that each of these stores has a fleet of 10 bikers t
 As per the Statista Surveys conducted in 2015 there were officially 900,000 bikes on road in US and as per Payscale on an average a pizza delivery person earns 20,000$ per month which can go till 28,000$ per month in US.
 Thus approximately the largest Food Chain in US owns 5% of the bikes on road and spends 20k X 50K X 12$ amount on just delivery service of the business.
 Like these several businesses maintain their own fleets to deliver goods thus aggravating the problems of Metro Cities like Traffic and air pollution.What if we could aggregate the delivery service and run it as Shared Service, thats where we pitch in the "Benzo carriers" a software solution relying on a fleet of autonomous Mercedes Cargo vans.
+
+
+
 Suggested Solution :
 Suppose we have 4 requests arisising at some point of time :
 
@@ -22,6 +30,8 @@ Carrying bunch of couriers to be delivered in and around location F
 Delivering a Grocery Order from B to C
 Delivering a delicate electronic item from C to E
 Delivering a Pizza from B to F
+
+
 Current Scenario :
 
 How does the current delivery service addresses the above deliverables within a city:
@@ -31,6 +41,8 @@ Logistic services like Blue-Dart and DHL have their own delivery-chain to pick t
 Startups like Grofers and BigBasket use the local logistic services for doorstep delivery.
 Big electronic stores like Croma or Small enterprises again rely on local logistics.
 Pizza Delivery relies on their own fleet of delivery professionals.
+
+
 Future Scenario:
 
 All the vendors use a ChatBot to book a space in a carrier.
@@ -41,10 +53,17 @@ Carrying bunch of couriers to be delivered in and around location F
 Delivering a Grocery delivery from B to C
 Delivering a delicate electronic item from C to E
 Delivering a Pizza from B to F
+
+
 Business Model for Mercedes Benz :
 In case of working as a Carrier for several kinds of vendors, Benz at an organizational level could sign deals with the vendor-chains to allow them to use the Benz carriers as delivery vehicles. It would be a Win-Win situation for both because then vendors would save considerable portion of revenue spent on having delivery boys as well as in maintaining the delivery vehicles and would partner up with Benz which would charge nominally for delivery services. Benz on the other hand would have a huge profit because in one trip it could earn Service-charge from several vendors by satisfying multiple requests in one go.
 
+
+
+
 Implementation :
+
+
 Modules Involved:
 
 ChatBot as User Interface : Messenger ChatBots make the interaction reach and helps to customize the response for users by remembering past conversations.
@@ -52,6 +71,8 @@ Server Side Scripting : Using NodeJS as Server Side language to configure API en
 Database Implementations : Using NoSQL databases to allow flexiblitiy in terms of Schematic Structure of data in Logistic services. MongoDB is the most ideal choice hosted on mLAB.
 Payment Gateways : The Mode of payment by the vendors to Benz would be through Payment Webhooks provided by Facebook's Platform APIs.
 OTP Generation module : Using SMS gateways like TextLocal.
+
+
 Technology Stack:
 
 Programming Languages : NodeJS
@@ -63,11 +84,18 @@ APIs for Commuting and identifying group of deliverables that can be grouped tog
 APIs for Car Parking when the van is not in service : Google's Nearby and Place APIs with types='parking' to find the nearest parking slot and then direction APIs to reach the same.
 APIs for Car Servicing when the autonomous van detects fault : Daimler's Dealer API for placing a servicing request to nearby Benz service center.
 APIs for Car Refueling when the autonomous van detects that it's low on fuel between pickups : Google's Nearby APIs with type='gas_station' to find the nearest gas station then Google direction APIs to reach the same.
+
+
+
+
 Critical usecases and how we plan to address it ? :
 
 Vehicle Design : The Vehicle that we plan to use here is a Self-Driving Mercedes Cargo Van with Smart Shelves inside the van with compartments of different sizes(Small,Medium and Large) to accommodate deliverables of varying sizes.
 
 End Users : The end user of the proposed idea is either a Vendor looking to transfer deliverables to their customer's doorstep OR a common-man willing to take the benefit of a doorstep to doorstep delivery process within a city.
+
+
+
 
 Usecase 1 : End User requests for a commodity delivery
 
@@ -92,6 +120,11 @@ Once a cab is picked up, the server side scripting updates the database transact
 
 • Once the new request is picked up then the autonomous car itself re-computes the paths to several destinations and starts the journey back.
 
+
+
+
+
+
 Usecase 2 : Enduser accepts the commodity delivery
 
 When the Cab is about to reach one of the requests' destination it sends SMS to the customer to be ready at the meeting point.
@@ -99,10 +132,17 @@ On Arriving at the destination, the person at meeting point needs to be authenti
 When the user picks up the deliverable, the RFID immediately updates the local database of Cab that these slots were emptied currently. Then the Cab software immediately compares that against the slot numbers alloted for this request . If there is a mismatch then it immediately alerts the customer with the internal Mic that you are picking up the wrong deliverables and reads out the slot numbers again for him.
 If no mismatch is found then the Cab updates the server that this request has been satisfied and in turn the server sends confirmation notifications to both the vendor via Chatbot and the end user via SMS. Finally server uses Daimlers APIs to close the doors and car goes on with further requests to be satisfied.
 If mismatch occurs and the customer tries to steal the deliverables by not keeping them back again then immediately the Cab updates the server to close the doors and sends a Alarming Notification to nearest Cops Sation with the image of the thief captured using the dashboard camera.
+
+
+
+
+
 Usecase 3 : Vendor doesn't arrive OR the customer doesn't arrive
 
-After reaching the source, if Vendor doesn't authenticates himself via OTP to the Cab. The Cab times out in 5 minutes and reports to the server that the vendor didn't turn up leading to cancellation of request and imposing of fine which needs to be paid when the same vendor requests again.
+After reaching the source, if Vendor doesn't authenticates hhttps://drive.google.com/file/d/1fZ0f330PhKG39NHtNLnmwGelTJOvnj0_/viewimself via OTP to the Cab. The Cab times out in 5 minutes and reports to the server that the vendor didn't turn up leading to cancellation of request and imposing of fine which needs to be paid when the same vendor requests again.
 After reaching the destination, if the Customer didn't turn up after waiting for 10 minutes then the Cab updates the server and goes ahead to fulfill the remaining requests. These are rare cases wherein the customer after paying up the price for commodity to the vendor didn't turn up but are likely to happen. Here the cab updates the destination of such requests same as source and entertains it as a new request. The Server is notified which in turn updates its database and informs the vendors about the same. On the other hand, Cab sends a SMS to the customer that delivery was attempted but since you didn't turn the deliverable is sent back to the concerned vendor.
 P.S. : First mile solution is addressed in Usecase 1 , Last mile solution is addressed in Usecase 2, No turn up is addressed in Usecase 3.
 
 Uploaded file is a animated video depicting the working of proposed solution.
+https://drive.google.com/file/d/1Jj6F4WsmP3bHd1-pyX5Lf6TkZmQ9OK-v/view
+https://drive.google.com/file/d/1fZ0f330PhKG39NHtNLnmwGelTJOvnj0_/view

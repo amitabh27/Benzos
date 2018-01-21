@@ -139,7 +139,7 @@ If mismatch occurs and the customer tries to steal the deliverables by not keepi
 
 Usecase 3 : Vendor doesn't arrive OR the customer doesn't arrive
 
-After reaching the source, if Vendor doesn't authenticates hhttps://drive.google.com/file/d/1fZ0f330PhKG39NHtNLnmwGelTJOvnj0_/viewimself via OTP to the Cab. The Cab times out in 5 minutes and reports to the server that the vendor didn't turn up leading to cancellation of request and imposing of fine which needs to be paid when the same vendor requests again.
+After reaching the source, if Vendor doesn't authenticates himself via OTP to the Cab. The Cab times out in 5 minutes and reports to the server that the vendor didn't turn up leading to cancellation of request and imposing of fine which needs to be paid when the same vendor requests again.
 After reaching the destination, if the Customer didn't turn up after waiting for 10 minutes then the Cab updates the server and goes ahead to fulfill the remaining requests. These are rare cases wherein the customer after paying up the price for commodity to the vendor didn't turn up but are likely to happen. Here the cab updates the destination of such requests same as source and entertains it as a new request. The Server is notified which in turn updates its database and informs the vendors about the same. On the other hand, Cab sends a SMS to the customer that delivery was attempted but since you didn't turn the deliverable is sent back to the concerned vendor.
 P.S. : First mile solution is addressed in Usecase 1 , Last mile solution is addressed in Usecase 2, No turn up is addressed in Usecase 3.
 

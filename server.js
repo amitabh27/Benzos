@@ -62,7 +62,7 @@ app.get('/benzoscarriers/placeOrder/:src/:dest/:phone/:slottype',function(req,re
 					{
 					console.log("inside fourth");
 					
-					request.post('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Request?apiKey=0IUPta4Xti13RA5KsXbUItjhVK938r0t',
+					request.post('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Request?apiKey=',
 						{ json: { 'req_ID': req_id,'src':source,'dest':destination,'no_slots':numberOfSlots,'type_slot':slottype,'customer_no' : phone,'expected_delivery'
 						: expected_delivery,'otp1': otp1,'otp2':otp2 } },
 						function (error, response, body) {
@@ -77,7 +77,7 @@ app.get('/benzoscarriers/placeOrder/:src/:dest/:phone/:slottype',function(req,re
 						console.log("Match with car 1122");
 						result="Van-1122 will reach you by "+expected_delivery+" .Slot Number assigned to you is S2 and OTP for verification is "+otp1+".Also you can track your order with the delivery ID-"+req_id;
 						
-						request.put('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Car?q={"car_ID": "1122"}&apiKey=0IUPta4Xti13RA5KsXbUItjhVK938r0t',
+						request.put('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Car?q={"car_ID": "1122"}&apiKey=',
 						{ json: { "$set":{"s2":req_id} } },
 						function (error, response, body) {
 							if (!error && response.statusCode == 200) {
@@ -90,7 +90,7 @@ app.get('/benzoscarriers/placeOrder/:src/:dest/:phone/:slottype',function(req,re
 						console.log("Match with car 1234");
 						result="Van-1234 will reach you by "+expected_delivery+" .Slot Number assigned to you is S2 and OTP for verification is "+otp1+".Also you can track your order with the delivery ID-"+req_id;
 					
-						request.put('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Car?q={"car_ID": "1234"}&apiKey=0IUPta4Xti13RA5KsXbUItjhVK938r0t',
+						request.put('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Car?q={"car_ID": "1234"}&apiKey=',
 						{ json: { "$set":{"s2":req_id} } },
 						function (error, response, body) {
 							if (!error && response.statusCode == 200) {
@@ -108,7 +108,7 @@ app.get('/benzoscarriers/placeOrder/:src/:dest/:phone/:slottype',function(req,re
 	function third(callback)
 	{
 					console.log("inside third");
-					request('https://maps.googleapis.com/maps/api/directions/json?origin='+source+'&destination='+destination+'&mode=driving&key=AIzaSyCweXwBZ82TU1ZdOCFoDFYhx9l75vh6E50', function (error, response, body) {
+					request('https://maps.googleapis.com/maps/api/directions/json?origin='+source+'&destination='+destination+'&mode=driving&key=', function (error, response, body) {
 						if (!error && response.statusCode == 200) 
 						{
 						
@@ -161,7 +161,7 @@ app.get('/benzoscarriers/placeOrder/:src/:dest/:phone/:slottype',function(req,re
 	{
 		var m="banashankari";
 					console.log("inside second");
-					request('https://maps.googleapis.com/maps/api/directions/json?origin='+source+'&destination='+m+'&mode=driving&key=AIzaSyCweXwBZ82TU1ZdOCFoDFYhx9l75vh6E50', function (error, response, body) {
+					request('https://maps.googleapis.com/maps/api/directions/json?origin='+source+'&destination='+m+'&mode=driving&key=', function (error, response, body) {
 						if (!error && response.statusCode == 200) 
 						{
 						
@@ -196,7 +196,7 @@ app.get('/benzoscarriers/placeOrder/:src/:dest/:phone/:slottype',function(req,re
 	function first(callback)
 	{
 		var m="majestic bangalore";
-		request('https://maps.googleapis.com/maps/api/directions/json?origin='+source+'&destination='+m+'&mode=driving&key=AIzaSyCweXwBZ82TU1ZdOCFoDFYhx9l75vh6E50', function (error, response, body) {
+		request('https://maps.googleapis.com/maps/api/directions/json?origin='+source+'&destination='+m+'&mode=driving&key=', function (error, response, body) {
 			if (!error && response.statusCode == 200) 
 			{
 			
@@ -253,7 +253,7 @@ app.get('/benzoscarriers/trackOrder/:deliveryID',function(req,res){
 	
 	function third(callback)
 	{
-			request('https://maps.googleapis.com/maps/api/directions/json?origin='+curr_lat+','+curr_lot+'&destination='+source+'&mode=driving&key=AIzaSyCweXwBZ82TU1ZdOCFoDFYhx9l75vh6E50', function (error, response, body) {
+			request('https://maps.googleapis.com/maps/api/directions/json?origin='+curr_lat+','+curr_lot+'&destination='+source+'&mode=driving&key=', function (error, response, body) {
 				if (!error && response.statusCode == 200) 
 				{
 				
@@ -277,7 +277,7 @@ app.get('/benzoscarriers/trackOrder/:deliveryID',function(req,res){
 	
 	function second(callback)
 	{
-				request('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Request?apiKey=0IUPta4Xti13RA5KsXbUItjhVK938r0t', function (error, response, body) {
+				request('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Request?apiKey=', function (error, response, body) {
 					if (!error && response.statusCode == 200) 
 					{
 						
@@ -300,7 +300,7 @@ app.get('/benzoscarriers/trackOrder/:deliveryID',function(req,res){
 	
 	function first(callback)
 	{
-		request('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Car?apiKey=0IUPta4Xti13RA5KsXbUItjhVK938r0t', function (error, response, body) {
+		request('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Car?apiKey=', function (error, response, body) {
 				if (!error && response.statusCode == 200) 
 				{
 					
@@ -345,7 +345,7 @@ app.get('/benzoscarriers/cars',function(req,res){
 	function first(callback)
 	{
 		
-	request('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Car?apiKey=0IUPta4Xti13RA5KsXbUItjhVK938r0t', function (error, response, body) {
+	request('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Car?apiKey=', function (error, response, body) {
     if (!error && response.statusCode == 200) 
 	{
 		
@@ -406,7 +406,7 @@ app.get('/benzoscarriers/requests',function(req,res){
 	function first(callback)
 	{
 		
-	request('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Request?apiKey=0IUPta4Xti13RA5KsXbUItjhVK938r0t', function (error, response, body) {
+	request('https://api.mlab.com/api/1/databases/benzoscarriers/collections/Request?apiKey=', function (error, response, body) {
     if (!error && response.statusCode == 200) 
 	{
 		
